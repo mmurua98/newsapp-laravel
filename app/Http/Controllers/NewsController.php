@@ -30,10 +30,8 @@ class NewsController extends Controller
             $data = json_decode($response->getBody(), true);
             $articles = $data['articles'];
             //dd($articles);
-
-            // Pasar los datos a la vista
-            return view('index', compact('articles'));
             
+
             // Guardar las noticias más visitadas en la base de datos
             foreach ($articles as $article) {
                 try{
@@ -52,6 +50,10 @@ class NewsController extends Controller
                     dd($e);
                 }
             }
+
+
+            // Pasar los datos a la vista
+            return view('index', compact('articles'));
         
 
         } catch (Exception $e) {
