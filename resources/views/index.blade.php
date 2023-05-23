@@ -58,16 +58,10 @@
             </div>
         </div>
 
-        <div class="container mt-4">
+        <div class="container mt-4" id="filteredContainer">
             <div id="filteredResults"></div>
         </div>
     </main>
-
-    
-    
-
-    
-    
 
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->

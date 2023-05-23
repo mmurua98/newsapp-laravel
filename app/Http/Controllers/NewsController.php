@@ -30,9 +30,8 @@ class NewsController extends Controller
             $data = json_decode($response->getBody(), true);
             $articles = $data['articles'];
             //dd($articles);
-            
 
-            // Guardar las noticias más visitadas en la base de datos
+             // Guardar las noticias más visitadas en la base de datos 
             foreach ($articles as $article) {
                 try{
                     $formattedDate = Carbon::parse($article['publishedAt'])->format('Y-m-d H:i:s');
@@ -50,15 +49,17 @@ class NewsController extends Controller
                     dd($e);
                 }
             }
-
+            
 
             // Pasar los datos a la vista
             return view('index', compact('articles'));
-        
 
         } catch (Exception $e) {
             // Manejar errores de solicitud
         }
+
+       
+
     }
 
     public function search(Request $request)
@@ -70,51 +71,5 @@ class NewsController extends Controller
         return view('partials.news', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(News $news)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(News $news)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, News $news)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(News $news)
-    {
-        //
-    }
 }
