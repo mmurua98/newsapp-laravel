@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('author');
             $table->dateTime('date');
             $table->string('url');
-            $table->string('thumbnail', 1000);
+            $table->string('thumbnail', 1000)->nullable();
             $table->timestamps();
         });
     }
